@@ -1,10 +1,6 @@
 pipeline {
   agent any
   stages {
-    
-
-    
-
     stage('Code Analysis') {
       parallel {
         stage('Code Analysis') {
@@ -13,16 +9,12 @@ pipeline {
               bat 'gradle sonarqube'
             }
 
+            waitForQualityGate true
           }
         }
 
-        
       }
     }
-
-    
-
-   
 
   }
 }
